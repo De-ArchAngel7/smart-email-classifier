@@ -1,0 +1,8 @@
+# Frontend Environment Variables
+# Copy this file to frontend/.env.local and update the values
+
+# Backend API URL (set by Vercel during deployment)
+NEXT_PUBLIC_API_URL=http://localhost:8000
+
+# For production, this will be automatically set to your Railway URL
+# Example: https://smart-email-classifier-production.up.railway.app
