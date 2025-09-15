@@ -25,8 +25,8 @@ app.add_middleware(
 # Load the pre-trained model
 try:
     classifier = pipeline(
-        "text-classification", 
-        model="bhadresh-savani/distilbert-base-uncased-emotion",
+        "text-classification",
+        model="cardiffnlp/twitter-roberta-base-emotion",
         top_k=None
     )
     print("Model loaded successfully!")
