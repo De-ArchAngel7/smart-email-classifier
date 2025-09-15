@@ -26,7 +26,7 @@ app.add_middleware(
 try:
     classifier = pipeline(
         "text-classification",
-        model="prajjwal1/bert-tiny",
+        model="bhadresh-savani/distilbert-base-uncased-emotion",
         top_k=None
     )
     print("Model loaded successfully!")
@@ -43,14 +43,18 @@ class ClassificationResponse(BaseModel):
     all_scores: list
 
 # Map emotion labels to email categories
-LABEL_TO_CATEGORY = {
-    "LABEL_1": "Positive Feedback",
-    "LABEL_0": "Complaint"
+EMOTION_TO_CATEGORY = {
+    "joy": "Positive Feedback",
+    "sadness": "Refund", 
+    "anger": "Complaint",
+    "fear": "Technical Issue",
+    "surprise": "General Inquiry",
+    "love": "Positive Feedback"
 }
 
-def map_label_to_category(label: str) -> str:
-    """Map classification label to email category"""
-    return LABEL_TO_CATEGORY.get(label, "General Inquiry")
+def map_emotion_to_category(emotion: str) -> str:
+    """Map emotion classification to email category"""
+    return EMOTION_TO_CATEGORY.get(emotion, "General Inquiry")
 
 def split_text_into_chunks(text: str, max_length: int = 400) -> List[str]:
     """Split text into overlapping chunks for better classification"""
@@ -122,7 +126,7 @@ def combine_classification_results(chunk_results: List[List[Dict]]) -> Dict:
         avg_score = data['total_score'] / data['count']
         combined_scores.append({
             'emotion': emotion,
-            'category': map_label_to_category(emotion),
+            'category': map_emotion_to_category(emotion),
             'confidence': avg_score
         })
     
