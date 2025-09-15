@@ -26,7 +26,7 @@ app.add_middleware(
 try:
     classifier = pipeline(
         "text-classification",
-        model="distilbert-base-uncased-finetuned-sst-2-english",
+        model="prajjwal1/bert-tiny",
         top_k=None
     )
     print("Model loaded successfully!")
@@ -44,8 +44,8 @@ class ClassificationResponse(BaseModel):
 
 # Map emotion labels to email categories
 LABEL_TO_CATEGORY = {
-    "POSITIVE": "Positive Feedback",
-    "NEGATIVE": "Complaint"
+    "LABEL_1": "Positive Feedback",
+    "LABEL_0": "Complaint"
 }
 
 def map_label_to_category(label: str) -> str:
