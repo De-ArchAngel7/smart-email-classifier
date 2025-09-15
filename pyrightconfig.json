@@ -1,0 +1,10 @@
+{
+  "include": ["main.py"],
+  "exclude": ["venv", "frontend"],
+  "pythonVersion": "3.10",
+  "pythonPlatform": "Windows",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": "none",
+  "venvPath": ".",
+  "venv": "venv"
+}
