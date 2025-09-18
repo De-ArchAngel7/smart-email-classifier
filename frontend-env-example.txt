@@ -1,8 +1,26 @@
-# Frontend Environment Variables
-# Copy this file to frontend/.env.local and update the values
+# Smart Email Classifier Environment Setup Guide
 
-# Backend API URL (set by Vercel during deployment)
+## Backend Environment Variables (.env)
+HF_API_TOKEN=your_hugging_face_token_here
+PORT=8000
+HOST=0.0.0.0
+
+## Frontend Environment Variables (frontend/.env.local)
 NEXT_PUBLIC_API_URL=http://localhost:8000
 
-# For production, this will be automatically set to your Railway URL
-# Example: https://smart-email-classifier-production.up.railway.app
+## Production Environment Variables
+# Backend
+HF_API_TOKEN=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
+PORT=8000
+
+# Frontend
+NEXT_PUBLIC_API_URL=https://your-backend-url.com
+
+## Deployment Platforms Environment Setup:
+
+### Railway/Render (Backend)
+- HF_API_TOKEN: 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
+- PORT: (automatically set by platform)
+
+### Vercel (Frontend)  
+- NEXT_PUBLIC_API_URL: https://your-backend-url.com
