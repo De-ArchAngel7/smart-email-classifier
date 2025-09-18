@@ -33,8 +33,8 @@ app.add_middleware(
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 if not HF_API_TOKEN:
     print("⚠️ Warning: HF_API_TOKEN not found in environment variables")
-    print("🔧 Using fallback token for development")
-    HF_API_TOKEN = "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"
+    print("🔧 Please set HF_API_TOKEN in your environment or .env file")
+    raise ValueError("HF_API_TOKEN is required. Please set it in your environment variables.")
 else:
     print("✅ HF_API_TOKEN loaded from environment variables")
 
